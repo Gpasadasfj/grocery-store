@@ -1,0 +1,201 @@
+@use "_fonts" as font;
+@use "_colors" as col;
+
+@mixin button() {
+  padding: 10px 30px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: col.$white;
+}
+
+.page {
+  font-family: font.$primary-font;
+  max-width: 1920px;
+  margin: auto;
+  padding: 20px 160px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  .navbar {
+    display: flex;
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 46px;
+      margin-left: 150px;
+      a {
+        padding: 10px 20px;
+        text-decoration: none;
+        color: col.$gray;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        &:hover {
+          color: col.$red;
+        }
+      }
+      .active {
+        color: col.$red;
+        position: relative;
+        &::before {
+          position: absolute;
+          content: "";
+          background-color: col.$red;
+          width: 50px;
+          height: 2px;
+          top: 40px;
+          left: 20px;
+        }
+      }
+    }
+  }
+  .login {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 10px;
+    &-icon {
+      position: relative;
+      margin-right: 8px;
+    }
+    &-icon::after {
+      position: absolute;
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: col.$red;
+      border-radius: 100px;
+    }
+    &-sign_in {
+      @include button();
+      color: col.$red;
+      &:hover {
+        background-color: col.$red;
+        color: col.$white;
+      }
+    }
+    &-sign_up {
+      @include button();
+      color: col.$white;
+      background-color: col.$red;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+main {
+  background-image: url("../../img/Group\ 3.png");
+  background-repeat: no-repeat;
+  background-position: top -50px right;
+  padding: 16px;
+  .hero {
+    display: flex;
+    flex-direction: column;
+    &-title {
+      margin-top: 30px;
+      margin-bottom: 16px;
+      max-width: 760px;
+      color: col.$black;
+      font-family: Montserrat;
+      font-size: 80px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: -2.8px;
+      span {
+        color: col.$red;
+      }
+    }
+    &-text {
+      margin-bottom: 45px;
+      max-width: 650px;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 40px;
+      color: col.$gray;
+    }
+    form {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    &-search_bar {
+      width: 450px;
+      height: 55px;
+      border: none;
+      background-color: rgba(208, 208, 210, 0.25);
+      padding: 20px;
+      font-family: font.$primary-font;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+      &:focus {
+        outline: none;
+      }
+
+      &_btn {
+        width: 60px;
+        height: 55px;
+        background-color: col.$red;
+        border: none;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        cursor: pointer;
+      }
+    }
+    &-highlights {
+      margin-bottom: 90px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 16px 30px;
+      max-width: 400px;
+      p {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+      p:last-of-type {
+        margin-left: 3px;
+      }
+    }
+  }
+  .food {
+    padding: 20px;
+    display: flex;
+    background-color: col.$white;
+    gap: 24px;
+    article {
+      max-width: 300px;
+    }
+    h3 {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      color: col.$black;
+    }
+    p {
+      color: col.$gray;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+}
